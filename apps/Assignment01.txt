@@ -1,0 +1,118 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+// Base class (optional, but good practice for OOP)
+class Shape {
+public:
+    virtual double perimeter() = 0;
+    virtual double area() = 0;
+    virtual void getInput() = 0;
+};
+
+// Triangle class
+class Triangle : public Shape {
+private:
+    double a, b, c;
+public:
+    void getInput() override {
+        cout << "Enter the three sides of the triangle: ";
+        cin >> a >> b >> c;
+    }
+    double perimeter() override {
+        return a + b + c;
+    }
+    double area() override {
+        double s = perimeter() / 2.0;
+        return sqrt(s * (s - a) * (s - b) * (s - c));
+    }
+};
+
+// Circle class
+class Circle : public Shape {
+private:
+    double r;
+public:
+    void getInput() override {
+        cout << "Enter the radius of the circle: ";
+        cin >> r;
+    }
+    double perimeter() override {
+        return 2 * M_PI * r;
+    }
+    double area() override {
+        return M_PI * r * r;
+    }
+};
+
+// Square class
+class Square : public Shape {
+private:
+    double a;
+public:
+    void getInput() override {
+        cout << "Enter the side length of the square: ";
+        cin >> a;
+    }
+    double perimeter() override {
+        return 4 * a;
+    }
+    double area() override {
+        return a * a;
+    }
+};
+
+// Rectangle class
+class Rectangle : public Shape {
+private:
+    double a, b;
+public:
+    void getInput() override {
+        cout << "Enter the length and width of the rectangle: ";
+        cin >> a >> b;
+    }
+    double perimeter() override {
+        return 2 * a + 2 * b;
+    }
+    double area() override {
+        return a * b;
+    }
+};
+
+int main() {
+    int choice;
+    Shape* shape = nullptr;
+
+    cout << "Choose a shape:\n";
+    cout << "1. Triangle\n";
+    cout << "2. Circle\n";
+    cout << "3. Square\n";
+    cout << "4. Rectangle\n";
+    cout << "Enter your choice: ";
+    cin >> choice;
+
+    switch (choice) {
+    case 1:
+        shape = new Triangle();
+        break;
+    case 2:
+        shape = new Circle();
+        break;
+    case 3:
+        shape = new Square();
+        break;
+    case 4:
+        shape = new Rectangle();
+        break;
+    default:
+        cout << "Invalid choice!" << endl;
+        return 0;
+    }
+
+    shape->getInput();
+    cout << "Perimeter: " << shape->perimeter() << endl;
+    cout << "Area: " << shape->area() << endl;
+
+    delete shape;
+    return 0;
+}
