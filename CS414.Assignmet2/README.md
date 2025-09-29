@@ -1,5 +1,3 @@
-Got it 👍 Here’s a **student-style README.md** you can drop into your GitHub repo. It explains your project, structure, and how to run it, in the way an instructor would expect.
-
 ---
 
 # 📘 Tree ADT with Index Card Application
@@ -107,3 +105,4 @@ Key not found
 ## Author
 
 Jackson Fortenberry
+
