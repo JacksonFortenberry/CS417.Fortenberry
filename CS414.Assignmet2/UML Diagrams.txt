@@ -1,0 +1,49 @@
++-------------------+        uses        +-------------------+
+|    Application    |------------------->|     Tree<T>       |
++-------------------+                    +-------------------+
+                                         | - root: Node*     |
+                                         | + find(T): T      |
+                                         | + insert(T): void |
+                                         | + inorder(): void |
+                                         | + preorder(): void|
+                                         | + postorder():void|
+                                         +-------------------+
+                                                |
+                                                | contains
+                                                |
+                                         +-------------------+
+                                         |   Node (nested)   |
+                                         +-------------------+
+                                         | data: T           |
+                                         | left: Node*       |
+                                         | right: Node*      |
+                                         +-------------------+
+
++-------------------+
+|    IndexCard      |
++-------------------+
+| - id: int         |
+| - keyword: string |
+| - note: string    |
++-------------------+
+| +getId()          |
+| +getKeyword()     |
+| +getNote()        |
+| operator<,>,==    |
+| operator<<        |
++-------------------+
+
+Tree<IndexCard>
+       root
+        |
+     [ID=2, "ML"]
+      /       \
+ [ID=1,"AI"]  [ID=3,"DS"]
+
+
+User --> Application: enter search ID
+Application --> Tree: find(IndexCard(ID))
+Tree --> Node(root): compare ID
+Node --> Node(left/right): recursive search
+Tree --> Application: return found IndexCard
+Application --> User: display card
