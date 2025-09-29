@@ -1,41 +1,21 @@
 Class Design Summary
-
 Tree<T>
-
 A template-based binary search tree (BST).
-
 Stores nodes with data, left, and right smart pointers.
-
 Functions:
-
 insert – adds a new element.
-
 find – searches for an element.
-
 inorder, preorder, postorder – traversal functions.
-
 Uses recursion for traversal and searching.
-
 IndexCard
-
 Represents an index card with:
-
 id (int) – unique identifier.
-
 keyword (string).
-
 note (string).
-
 Operators <, >, == compare cards by id.
-
 << operator outputs a card nicely formatted.
-
 Application (main.cpp)
-
 Creates a tree of IndexCard objects.
-
 Inserts three cards.
-
 Prints inorder traversal of the deck.
-
 Allows user to search by ID and shows result.
